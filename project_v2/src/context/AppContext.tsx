@@ -6,7 +6,6 @@ import { QUESTION_BANK_EXPANDED } from "@/data/questionBankExpanded";
 import { QUESTION_BANK_EXTRA } from "@/data/questionBankExtra";
 import { QUESTION_BANK_FINAL } from "@/data/questionBankFinal";
 
-// Types
 export interface Question {
   id: string;
   title: string;

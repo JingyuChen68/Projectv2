@@ -3,7 +3,7 @@ export interface LessonSection {
   content: string;
   code?: string;
   codeLanguage?: string;
-  diagram?: string; // SVG string
+  diagram?: string; 
   tips?: string[];
 }
 
