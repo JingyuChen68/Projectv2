@@ -5,7 +5,7 @@ test.describe("EmbedPrep — Full App Test Suite", () => {
   test("Dashboard loads with correct title and hero", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveTitle(/EmbedPrep/);
-    await expect(page.locator("text=Welcome to EmbedPrep")).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Build your embedded interview stack/ })).toBeVisible();
   });
 
   test("Dashboard shows stat cards", async ({ page }) => {
@@ -15,10 +15,11 @@ test.describe("EmbedPrep — Full App Test Suite", () => {
     await expect(page.getByText("mastered").first()).toBeVisible();
   });
 
-  test("Navbar has all 7 navigation links", async ({ page }) => {
+  test("Navbar has all navigation links", async ({ page }) => {
     await page.goto("/");
     const nav = page.locator("nav");
     await expect(nav.getByText("Dashboard")).toBeVisible();
+    await expect(nav.getByText("Chip Lab")).toBeVisible();
     await expect(nav.getByText("Lessons")).toBeVisible();
     await expect(nav.getByText("Questions")).toBeVisible();
     await expect(nav.getByText("Industry")).toBeVisible();
@@ -110,6 +111,15 @@ test.describe("EmbedPrep — Full App Test Suite", () => {
     await expect(page.getByText("questions found")).toBeVisible();
   });
 
+  test("Chip Lab page filters and compares MCUs", async ({ page }) => {
+    await page.goto("/chips");
+    await expect(page.getByRole("heading", { name: /Pick silicon from requirements/ })).toBeVisible();
+    await expect(page.getByText("ESP32-S3-WROOM-1")).toBeVisible();
+    await page.getByLabel("Connectivity").selectOption("Bluetooth LE");
+    await expect(page.getByText("nRF52840")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Selected MCU specs" })).toBeVisible();
+  });
+
   test("Career page loads with career paths and skills tracker", async ({ page }) => {
     await page.goto("/career");
     await expect(page.getByRole("heading", { name: "Career Roadmap" })).toBeVisible();
@@ -140,6 +150,10 @@ test.describe("EmbedPrep — Full App Test Suite", () => {
     // Navigate to Questions
     await page.click("nav >> text=Questions");
     await expect(page).toHaveURL("/questions");
+
+    // Navigate to Chip Lab
+    await page.click("nav >> text=Chip Lab");
+    await expect(page).toHaveURL("/chips");
 
     // Navigate to Industry
     await page.click("nav >> text=Industry");

@@ -7,13 +7,14 @@ import { UserButton, SignInButton, useUser } from "@clerk/nextjs";
 const NAV_ITEMS = [
   { href: "/", label: "Dashboard", icon: "01" },
   { href: "/explore", label: "Explore", icon: "02" },
-  { href: "/saved", label: "Saved", icon: "03" },
-  { href: "/lessons", label: "Lessons", icon: "04" },
-  { href: "/questions", label: "Questions", icon: "05" },
-  { href: "/industry", label: "Industry", icon: "06" },
-  { href: "/career", label: "Career", icon: "07" },
-  { href: "/companies", label: "Companies", icon: "08" },
-  { href: "/checklist", label: "Checklist", icon: "09" },
+  { href: "/chips", label: "Chip Lab", icon: "03" },
+  { href: "/saved", label: "Saved", icon: "04" },
+  { href: "/lessons", label: "Lessons", icon: "05" },
+  { href: "/questions", label: "Questions", icon: "06" },
+  { href: "/industry", label: "Industry", icon: "07" },
+  { href: "/career", label: "Career", icon: "08" },
+  { href: "/companies", label: "Companies", icon: "09" },
+  { href: "/checklist", label: "Checklist", icon: "10" },
 ];
 
 export default function Navbar() {
@@ -55,7 +56,6 @@ export default function Navbar() {
             ) : isSignedIn ? (
               <div className="rounded-full border border-cyan-300/20 bg-slate-900/70 p-1">
                 <UserButton
-                  afterSignOutUrl="/"
                   appearance={{
                     elements: {
                       avatarBox: "w-8 h-8",

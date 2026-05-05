@@ -17,6 +17,10 @@ interface Repo {
   updated_at: string;
 }
 
+interface SavedRepoRow {
+  repo_id: number;
+}
+
 export default function ExplorePage() {
   const { isSignedIn } = useUser();
   const [query, setQuery] = useState("");
@@ -34,7 +38,7 @@ export default function ExplorePage() {
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data)) {
-            setSavedIds(new Set(data.map((r: any) => r.repo_id)));
+            setSavedIds(new Set(data.map((r: SavedRepoRow) => r.repo_id)));
           }
         })
         .catch(console.error);

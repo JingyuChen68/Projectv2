@@ -64,6 +64,12 @@ export default function Dashboard() {
               >
                 Browse Study Modules
               </Link>
+              <Link
+                href="/chips"
+                className="rounded-xl border border-emerald-300/30 bg-emerald-400/10 px-5 py-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-400/15"
+              >
+                Compare MCUs
+              </Link>
             </div>
           </div>
 
@@ -120,13 +126,14 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3 xl:grid-cols-6">
+      <section className="grid gap-4 md:grid-cols-3 xl:grid-cols-7">
         <ActionTile href="/lessons" index="A1" title="Lessons" detail="Structured concept review" />
         <ActionTile href="/questions" index="A2" title="Questions" detail="Practice and track answers" />
-        <ActionTile href="/career" index="A3" title="Career" detail="Map roles and milestones" />
-        <ActionTile href="/industry" index="A4" title="Industry" detail="Study companies and trends" />
-        <ActionTile href="/companies" index="A5" title="Pipeline" detail="Track research and interviews" />
-        <ActionTile href="/checklist" index="A6" title="Checklist" detail="Final readiness review" />
+        <ActionTile href="/chips" index="A3" title="Chip Lab" detail="Compare specs and supply" />
+        <ActionTile href="/career" index="A4" title="Career" detail="Map roles and milestones" />
+        <ActionTile href="/industry" index="A5" title="Industry" detail="Study companies and trends" />
+        <ActionTile href="/companies" index="A6" title="Pipeline" detail="Track research and interviews" />
+        <ActionTile href="/checklist" index="A7" title="Checklist" detail="Final readiness review" />
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[1.35fr_0.95fr]">

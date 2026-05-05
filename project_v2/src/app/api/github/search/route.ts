@@ -1,5 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 
+interface GitHubRepo {
+  id: number;
+  name: string;
+  full_name: string;
+  description: string | null;
+  html_url: string;
+  stargazers_count: number;
+  language: string | null;
+  topics?: string[];
+  owner?: {
+    avatar_url?: string;
+  };
+  forks_count: number;
+  updated_at: string;
+}
+
+interface GitHubSearchResponse {
+  total_count: number;
+  items?: GitHubRepo[];
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("q") || "embedded systems";
@@ -28,10 +49,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const data = await res.json();
+    const data = (await res.json()) as GitHubSearchResponse;
 
     // Shape the response to only include what we need
-    const repos = (data.items || []).map((repo: any) => ({
+    const repos = (data.items || []).map((repo) => ({
       id: repo.id,
       name: repo.name,
       full_name: repo.full_name,

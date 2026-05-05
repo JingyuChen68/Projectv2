@@ -16,6 +16,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Chip Lab pricing feed
+
+The Chip Lab page uses `/api/chips/pricing` for price and availability data. By default it serves catalog snapshots so the comparison engine works offline.
+
+To merge in live supplier data, set `CHIP_PRICING_ENDPOINT` to a JSON endpoint that returns either an array of quotes or `{ "quotes": [...] }`. Each quote can include `partNumber`, `distributor`, `unitPriceUsd`, `stock`, `leadTimeWeeks`, `packaging`, `source`, and `updatedAt`. If the endpoint needs auth, set `CHIP_PRICING_TOKEN` and the app will send it as a bearer token.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

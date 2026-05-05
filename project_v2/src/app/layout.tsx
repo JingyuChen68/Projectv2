@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "EmbedPrep — Embedded Systems Interview Prep",
   description:
-    "Practice questions, company research, checklists, and progress tracking for embedded systems & hardware interviews.",
+    "Practice questions, chip comparison, company research, checklists, and progress tracking for embedded systems & hardware interviews.",
 };
 
 export default function RootLayout({
