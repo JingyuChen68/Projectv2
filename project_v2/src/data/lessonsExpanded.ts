@@ -1,7 +1,6 @@
 import { Lesson } from "./lessons";
 
 export const EXPANDED_LESSONS: Lesson[] = [
-  // ─── VISUAL DIAGRAMS & REFERENCES ─────────────────────────
   {
     slug: "visual-diagrams",
     category: "Visual References",

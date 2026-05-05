@@ -4,6 +4,7 @@ import {
   type ChipPriceSnapshot,
 } from "@/data/chipCatalog";
 
+// newly added chip
 export const dynamic = "force-dynamic";
 
 type QuoteMap = Record<string, ChipPriceSnapshot>;

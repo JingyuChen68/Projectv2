@@ -8,7 +8,6 @@ export function createSupabaseClient() {
   );
 }
 
-// Server-side Supabase client with Clerk JWT for RLS
 export function createSupabaseServerClient(supabaseToken: string) {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
